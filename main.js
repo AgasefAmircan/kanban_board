@@ -18,7 +18,7 @@ const modalTitle = document.getElementById("modal-title");
 const editIdEl = document.getElementById("edit-id");
 
 // fetch task from localStorage
-let tasks = JSON.parse(localStorage.getItem("kanbanTasks"));
+let tasks = JSON.parse(localStorage.getItem("kanbanTasks")) || [];
 
 // intial filter values
 let filters = {
@@ -257,11 +257,12 @@ function render() {
 }
 
 function updateCounts() {
-  document.querySelector('[data-status="todo"].task-count').textContent =
+  document.querySelector('[data-status="todo"] .task-count').textContent =
     tasks.filter((t) => t.status === "todo").length;
-  document.querySelector('[data-status="in-progress"].task-count').textContent =
-    tasks.filter((t) => t.status === "in-progress").length;
-  document.querySelector('[data-status="done"].task-count').textContent =
+  document.querySelector(
+    '[data-status="in-progress"] .task-count'
+  ).textContent = tasks.filter((t) => t.status === "in-progress").length;
+  document.querySelector('[data-status="done"] .task-count').textContent =
     tasks.filter((t) => t.status === "done").length;
 }
 
