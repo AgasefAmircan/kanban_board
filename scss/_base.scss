@@ -1,0 +1,23 @@
+@use "variables" as vars;
+
+:root {
+  --bg: #{vars.$bg};
+  --text: #{vars.$text};
+  --accent: #{vars.$accent};
+  --border: #{vars.$border};
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: vars.$font-family-base;
+  background: vars.$bg;
+  color: vars.$text;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

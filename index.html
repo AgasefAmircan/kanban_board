@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Kanban Board</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!---------------------------  header section ---------------------------------------->
+    <header class="header">
+      <div class="header-container">
+        <h2 class="logo">TaskFlow</h2>
+
+        <div class="filters">
+          <input id="search" type="search" placeholder="Search tasks..." />
+
+          <select id="priority-filter" title="Filter by priority">
+            <option value="all">All priorities</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+
+          <select id="sort-by" title="Sort by due date">
+            <option value="none">Sort: none</option>
+            <option value="asc">Due date ↑</option>
+            <option value="desc">Due date ↓</option>
+          </select>
+
+          <button class="add-btn" id="open-modal">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add Task</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!---------------------------- main section --------------------------------------------->
+    <main class="main-section">
+      <div class="board" data-status="todo">
+        <div class="board-header">
+          <h3>To Do</h3>
+          <span class="task-count">0</span>
+        </div>
+        <div class="task-list" id="todo-list"></div>
+      </div>
+
+      <div class="board" data-status="in-progress">
+        <div class="board-header">
+          <h3>In Progress</h3>
+          <span class="task-count">0</span>
+        </div>
+        <div class="task-list" id="progress-list"></div>
+      </div>
+
+      <div class="board" data-status="done">
+        <div class="board-header">
+          <h3>Done</h3>
+          <span class="task-count">0</span>
+        </div>
+        <div class="task-list" id="done-list"></div>
+      </div>
+    </main>
+
+    <!-------------------------- modal section ---------------------------->
+    <div class="modal hidden" id="task-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modal-title">Add Task</h3>
+          <i
+            class="fa fa-times close-modal"
+            id="close-modal"
+            title="Close Modal"
+          ></i>
+        </div>
+
+        <form id="task-form">
+          <input type="hidden" id="edit-id" value="" />
+
+          <label>
+            Title
+            <input type="text" id="title" required />
+          </label>
+
+          <label>
+            Description
+            <textarea id="description" rows="3" required></textarea>
+          </label>
+
+          <label>
+            Priority
+            <select id="priority" required>
+              <option value="">Select priority</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </label>
+
+          <label>
+            Due Date
+            <input type="date" id="dueDate" required />
+          </label>
+
+          <div class="modal-actions">
+            <button type="button" class="cancel-btn" id="cancel-btn">
+              Cancel
+            </button>
+            <button type="submit" class="save-btn" id="save-btn">
+              Save Task
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--------------------------- footer section ----------------------------->
+    <footer>
+      <p>
+        <i class="fa-regular fa-copyright"></i>
+        2025 Built by
+        <a href="https://github.com/agasefamircan" target="_blank"
+          >Amirjan</a
+        >
+      </p>
+    </footer>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

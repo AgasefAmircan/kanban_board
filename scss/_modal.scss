@@ -1,0 +1,105 @@
+@use "variables" as vars;
+@use "mixins" as *;
+@include fadeIn;
+@include slideUp;
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 50;
+    animation: fadeIn 0.3s ease;
+
+    &.hidden {
+        display: none;
+    }
+
+    .modal-content {
+        width: 360px;
+        background: #1e293b;
+        border-radius: vars.$radius-lg;
+        padding: 18px;
+        border: 1px solid vars.$border;
+        animation: slideUp 0.3s ease;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+
+        h3 {
+            color: vars.$accent;
+            margin: 0;
+        }
+        .close-modal {
+            cursor: pointer;
+            color: vars.$muted;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        label {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px;
+            color: vars.$muted;
+
+            input,
+            textarea,
+            select {
+                margin-top: 6px;
+                padding: 8px;
+                border-radius: vars.$radius-sm;
+                border: 1px solid vars.$border;
+                background: #334155;
+                color: vars.$text;
+            }
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 6px;
+
+            .cancel-btn,
+            .save-btn {
+                padding: 8px 12px;
+                border-radius: vars.$radius-sm;
+                border: none;
+                cursor: pointer;
+                font-weight: 600;
+            }
+
+            .cancel-btn {
+                background: none;
+                color: vars.$muted;
+                border: 1px solid vars.$border;
+                &:hover {
+                    background: #334155;
+                }
+            }
+
+            .save-btn {
+                background: vars.$accent;
+                color: #fff;
+                &:hover {
+                    opacity: 0.95;
+                }
+            }
+        }
+    }
+}

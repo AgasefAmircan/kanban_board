@@ -1,0 +1,58 @@
+@use "variables" as vars;
+@use "mixins" as mixins;
+
+.header {
+  background: rgba(30, 41, 59, 0.95);
+  padding: 12px 20px;
+  border-bottom: 1px solid vars.$border;
+
+  .header-container {
+    @include mixins.container(vars.$max-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .logo {
+    color: vars.$accent;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    font-size: 28px;
+  }
+
+  .filters {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    input[type="search"],
+    select {
+      background: none;
+      border: 1px solid vars.$border;
+      color: vars.$text;
+      padding: 8px 10px;
+      border-radius: vars.$radius-sm;
+    }
+
+    select {
+      background: #0b1220;
+    }
+
+    .add-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: vars.$accent;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: vars.$radius-md;
+      cursor: pointer;
+
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+}
