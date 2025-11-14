@@ -138,9 +138,9 @@ sortBySelect.addEventListener("change", (e) => {
 // drag functionality
 let dragId = null;
 function handleDragStart(e) {
-  e.target.classList.add("dragging");
+  dragId = Number(this.dataset.id);
   e.dataTransfer.effectAllowed = "move";
-  e.dataTransfer.setData("text/html", e.target.innerHTML);
+  e.target.classList.add("dragging");
 }
 function handleDragEnd() {
   this.classList.remove("dragging");
